@@ -1,0 +1,21 @@
+.desk {
+  display: flex;
+  width: 50rem;
+  height: 33.25rem;
+  border: 8px solid black;
+}
+
+.deskPanel {
+  width: 14.75rem;
+  border-right: 8px solid black;
+  padding: 1rem;
+}
+
+.deskBoard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  width: calc(100% - 14.75rem);
+  padding: 1rem;
+}

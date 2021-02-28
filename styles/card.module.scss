@@ -1,0 +1,128 @@
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7.3125rem;
+  height: 9.75rem;
+  color: transparent;
+  font-size: 3.75rem;
+  font-weight: 700;
+  background-color: black;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+  animation-duration: 0.75s;
+  user-select: none;
+
+  &::before {
+    content: "\213C";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -14%;
+    margin-right: -50%;
+    color: white;
+    font-size: 6rem;
+    font-weight: 700;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.cardOpen {
+  border: 8px solid black;
+  color: black;
+  background-color: white;
+  transform: rotateY(0);
+  animation-name: flip;
+
+  &::before {
+    content: "";
+  }
+}
+
+.cardMatch {
+  color: blue;
+  border: 8px solid blue;
+  animation-name: shake;
+}
+
+.cardUnmatched {
+  color: red;
+  border: 8px solid red;
+  animation-name: woop;
+}
+
+.cardDisabled {
+  pointer-events: none;
+}
+
+@keyframes flip {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
+
+@keyframes shake {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+@keyframes woop {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.08, 1.08, 1.08);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}

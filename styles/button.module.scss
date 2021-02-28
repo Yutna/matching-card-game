@@ -1,0 +1,21 @@
+.button {
+  display: inline-block;
+  border: 0;
+  padding: 1rem;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  background-color: black;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #1F2937;
+  }
+
+  &:active {
+    background-color: #374151;
+    transform: translateY(2px);
+  }
+}

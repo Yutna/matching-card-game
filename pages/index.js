@@ -1,18 +1,16 @@
 import React from 'react';
 import Head from 'next/head';
 import _ from 'lodash';
-import classNames from 'classnames/bind';
 
 import Layout from '../components/layout';
 import Header from '../components/header';
+import Card from '../components/card';
+import Desk from '../components/desk';
 
 import CardsAdapter from '../adapters/CardsAdapter';
 import deskStyles from '../styles/desk.module.scss';
-import cardStyles from '../styles/card.module.scss';
 import panelStyles from '../styles/panel.module.scss';
 import buttonStyles from '../styles/button.module.scss';
-
-const cardStylesContext = classNames.bind(cardStyles);
 
 class Home extends React.Component {
   constructor(props) {
@@ -189,20 +187,6 @@ class Home extends React.Component {
     return score === 0 ? '-' : score;
   }
 
-  displayCardNumber(card) {
-    return card.open ? card.number : '';
-  }
-
-  getCardStyles(card) {
-    return cardStylesContext({
-      card: true,
-      cardOpen: card.open,
-      cardMatched: card.matched,
-      cardUnmatched: card.unmatched,
-      cardDisabled: card.disabled
-    });
-  }
-
   render() {
     const { click, myBest, globalBest, cards } = this.state;
 
@@ -214,6 +198,9 @@ class Home extends React.Component {
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" />
         </Head>
         <Header title="Matching Card Game" />
+        <Desk
+          cards={cards}
+        />
         <div className={deskStyles.desk}>
           <div className={deskStyles.deskPanel}>
             <div className={panelStyles.panel}>
@@ -248,9 +235,7 @@ class Home extends React.Component {
           </div>
           <div className={deskStyles.deskBoard}>
             {cards.map((card) => (
-              <div key={card.id} className={this.getCardStyles(card)} onClick={() => this.handleCardClick(card)}>
-                {this.displayCardNumber(card)}
-              </div>
+              <Card key={card.id} card={card} onCardClick={this.handleCardClick} />
             ))}
           </div>
         </div>

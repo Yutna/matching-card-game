@@ -9,7 +9,7 @@
 ## การติดตั้ง
 1. เปิด Terminal ขึ้นมาแล้ว
 ```shellscript
-git@github.com:Yutna/matching-card-game.git
+git clone git@github.com:Yutna/matching-card-game.git
 ```
 
 2. เข้าไปที่โฟลเดอร์ของโปรเจกต์

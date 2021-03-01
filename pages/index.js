@@ -5,6 +5,7 @@ import _ from 'lodash';
 import Layout from '../components/layout';
 import Header from '../components/header';
 import Card from '../components/card';
+import PanelScore from '../components/panelScore';
 import Desk from '../components/desk';
 
 import CardsAdapter from '../adapters/CardsAdapter';
@@ -181,12 +182,6 @@ class Home extends React.Component {
     });
   }
 
-  // Render or presenter methods
-
-  displayScore(score) {
-    return score === 0 ? '-' : score;
-  }
-
   render() {
     const { click, myBest, globalBest, cards } = this.state;
 
@@ -203,30 +198,9 @@ class Home extends React.Component {
         />
         <div className={deskStyles.desk}>
           <div className={deskStyles.deskPanel}>
-            <div className={panelStyles.panel}>
-              <strong className={panelStyles.panelTitle}>
-                Click:
-              </strong>
-              <em className={panelStyles.panelScore}>
-                {this.displayScore(click)}
-              </em>
-            </div>
-            <div className={panelStyles.panel}>
-              <strong className={panelStyles.panelTitle}>
-                My Best:
-              </strong>
-              <em className={panelStyles.panelScore}>
-                {this.displayScore(myBest)}
-              </em>
-            </div>
-            <div className={panelStyles.panel}>
-              <strong className={panelStyles.panelTitle}>
-                Global Best:
-              </strong>
-              <em className={panelStyles.panelScore}>
-                {this.displayScore(globalBest)}
-              </em>
-            </div>
+            <PanelScore title="Click:" score={click} />
+            <PanelScore title="My Best:" score={myBest} />
+            <PanelScore title="Global Best:" score={globalBest} />
             <div className={panelStyles.panel}>
               <button type="button" className={buttonStyles.button} onClick={this.handleNewGameButton}>
                 Start New Game

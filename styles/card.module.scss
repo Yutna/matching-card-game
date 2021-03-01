@@ -12,6 +12,7 @@
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
   animation-duration: 0.75s;
+  cursor: pointer;
   user-select: none;
 
   &::before {
@@ -41,19 +42,23 @@
   }
 }
 
-.cardMatch {
-  color: blue;
-  border: 8px solid blue;
-  animation-name: shake;
+.cardClose {
+  transform: rotateY(0);
+  animation-name: flip;
+}
+
+.cardMatched {
+  color: green;
+  border: 8px solid green;
 }
 
 .cardUnmatched {
   color: red;
   border: 8px solid red;
-  animation-name: woop;
 }
 
 .cardDisabled {
+  cursor: not-allowed;
   pointer-events: none;
 }
 
@@ -80,49 +85,5 @@
 
 	to {
 		transform: perspective(400px);
-	}
-}
-
-@keyframes shake {
-	from {
-		transform: scale3d(1, 1, 1);
-	}
-
-	30% {
-		transform: scale3d(1.25, 0.75, 1);
-	}
-
-	40% {
-		transform: scale3d(0.75, 1.25, 1);
-	}
-
-	50% {
-		transform: scale3d(1.15, 0.85, 1);
-	}
-
-	65% {
-		transform: scale3d(0.95, 1.05, 1);
-	}
-
-	75% {
-		transform: scale3d(1.05, 0.95, 1);
-	}
-
-	to {
-		transform: scale3d(1, 1, 1);
-	}
-}
-
-@keyframes woop {
-	from {
-		transform: scale3d(1, 1, 1);
-	}
-
-	50% {
-		transform: scale3d(1.08, 1.08, 1.08);
-	}
-
-	to {
-		transform: scale3d(1, 1, 1);
 	}
 }

@@ -1,13 +1,13 @@
 import React from 'react';
-import Head from 'next/head';
 import _ from 'lodash';
 
 import Layout from '../components/layout';
 import Header from '../components/header';
-import Card from '../components/card';
 import PanelScore from '../components/panelScore';
 import PanelAction from '../components/panelAction';
 import Desk from '../components/desk';
+import DeskPanel from '../components/deskPanel';
+import Card from '../components/card';
 
 import CardsAdapter from '../adapters/CardsAdapter';
 import deskStyles from '../styles/desk.module.scss';
@@ -188,12 +188,12 @@ class Home extends React.Component {
       <Layout>
         <Header title="Matching Card Game" />
         <Desk>
-          <div className={deskStyles.deskPanel}>
+          <DeskPanel>
             <PanelScore title="Click:" score={click} />
             <PanelScore title="My Best:" score={myBest} />
             <PanelScore title="Global Best:" score={globalBest} />
             <PanelAction title="Start New Game" onClick={this.handleNewGameButton} />
-          </div>
+          </DeskPanel>
           <div className={deskStyles.deskBoard}>
             {cards.map((card) => (
               <Card key={card.id} card={card} onCardClick={this.handleCardClick} />

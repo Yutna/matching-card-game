@@ -4,9 +4,9 @@ import _ from 'lodash';
 import classNames from 'classnames/bind';
 
 import Layout from '../components/layout';
+import Header from '../components/header';
 
 import CardsAdapter from '../adapters/CardsAdapter';
-import headerStyles from '../styles/header.module.scss';
 import deskStyles from '../styles/desk.module.scss';
 import cardStyles from '../styles/card.module.scss';
 import panelStyles from '../styles/panel.module.scss';
@@ -213,11 +213,7 @@ class Home extends React.Component {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" />
         </Head>
-        <header className={headerStyles.header}>
-          <h1 className={headerStyles.headerTitle}>
-            Matching Card Game
-          </h1>
-        </header>
+        <Header title="Matching Card Game" />
         <div className={deskStyles.desk}>
           <div className={deskStyles.deskPanel}>
             <div className={panelStyles.panel}>

@@ -7,10 +7,10 @@ import PanelScore from '../components/panelScore';
 import PanelAction from '../components/panelAction';
 import Desk from '../components/desk';
 import DeskPanel from '../components/deskPanel';
+import DeskBoard from '../components/deskBoard';
 import Card from '../components/card';
 
 import CardsAdapter from '../adapters/CardsAdapter';
-import deskStyles from '../styles/desk.module.scss';
 
 class Home extends React.Component {
   constructor(props) {
@@ -181,6 +181,8 @@ class Home extends React.Component {
     });
   }
 
+  // Render or presenter methods
+
   render() {
     const { click, myBest, globalBest, cards } = this.state;
 
@@ -194,11 +196,11 @@ class Home extends React.Component {
             <PanelScore title="Global Best:" score={globalBest} />
             <PanelAction title="Start New Game" onClick={this.handleNewGameButton} />
           </DeskPanel>
-          <div className={deskStyles.deskBoard}>
+          <DeskBoard>
             {cards.map((card) => (
               <Card key={card.id} card={card} onCardClick={this.handleCardClick} />
             ))}
-          </div>
+          </DeskBoard>
         </Desk>
       </Layout>
     );

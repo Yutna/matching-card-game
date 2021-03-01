@@ -6,12 +6,11 @@ import Layout from '../components/layout';
 import Header from '../components/header';
 import Card from '../components/card';
 import PanelScore from '../components/panelScore';
+import PanelAction from '../components/panelAction';
 import Desk from '../components/desk';
 
 import CardsAdapter from '../adapters/CardsAdapter';
 import deskStyles from '../styles/desk.module.scss';
-import panelStyles from '../styles/panel.module.scss';
-import buttonStyles from '../styles/button.module.scss';
 
 class Home extends React.Component {
   constructor(props) {
@@ -187,11 +186,6 @@ class Home extends React.Component {
 
     return (
       <Layout>
-        <Head>
-          <title>Matching Game Card</title>
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" />
-        </Head>
         <Header title="Matching Card Game" />
         <Desk
           cards={cards}
@@ -201,11 +195,7 @@ class Home extends React.Component {
             <PanelScore title="Click:" score={click} />
             <PanelScore title="My Best:" score={myBest} />
             <PanelScore title="Global Best:" score={globalBest} />
-            <div className={panelStyles.panel}>
-              <button type="button" className={buttonStyles.button} onClick={this.handleNewGameButton}>
-                Start New Game
-              </button>
-            </div>
+            <PanelAction title="Start New Game" onClick={this.handleNewGameButton} />
           </div>
           <div className={deskStyles.deskBoard}>
             {cards.map((card) => (

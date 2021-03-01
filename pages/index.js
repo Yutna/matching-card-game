@@ -187,10 +187,7 @@ class Home extends React.Component {
     return (
       <Layout>
         <Header title="Matching Card Game" />
-        <Desk
-          cards={cards}
-        />
-        <div className={deskStyles.desk}>
+        <Desk>
           <div className={deskStyles.deskPanel}>
             <PanelScore title="Click:" score={click} />
             <PanelScore title="My Best:" score={myBest} />
@@ -202,7 +199,7 @@ class Home extends React.Component {
               <Card key={card.id} card={card} onCardClick={this.handleCardClick} />
             ))}
           </div>
-        </div>
+        </Desk>
       </Layout>
     );
   }

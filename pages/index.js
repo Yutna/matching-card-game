@@ -2,8 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 import _ from 'lodash';
 import classNames from 'classnames/bind';
+
+import Layout from '../components/layout';
+
 import CardsAdapter from '../adapters/CardsAdapter';
-import layoutStyles from '../styles/layout.module.scss';
 import headerStyles from '../styles/header.module.scss';
 import deskStyles from '../styles/desk.module.scss';
 import cardStyles from '../styles/card.module.scss';
@@ -205,7 +207,7 @@ class Home extends React.Component {
     const { click, myBest, globalBest, cards } = this.state;
 
     return (
-      <div className={layoutStyles.container}>
+      <Layout>
         <Head>
           <title>Matching Game Card</title>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -256,7 +258,7 @@ class Home extends React.Component {
             ))}
           </div>
         </div>
-      </div>
+      </Layout>
     );
   }
 }
